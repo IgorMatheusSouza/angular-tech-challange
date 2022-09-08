@@ -1,7 +1,7 @@
 export const environment = {
-  production: true
+  production: true,
+  apiBaseUrl: '',
 };
-
 
 /*
 Copyright Google LLC. All Rights Reserved.
