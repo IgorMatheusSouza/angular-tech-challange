@@ -18,15 +18,19 @@ export class ProductListComponent implements OnInit {
   constructor(private router: Router, private productService: ProductService) {}
 
   ngOnInit() {
+    this.getProducts();
+  }
+
+  share() {
+    window.alert('The product has been shared!');
+  }
+
+  getProducts() {
     this.productService
       .getProducts()
       .subscribe((response: ProductListResult) => {
         this.products = response.products;
       });
-  }
-
-  share() {
-    window.alert('The product has been shared!');
   }
 }
 
