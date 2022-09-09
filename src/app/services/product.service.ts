@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
 import { BaseService } from './base.service';
 import { Product } from '../modules/product/models/product';
 import { ProductListResult } from '../modules/product/models/productListResult';
@@ -33,23 +32,5 @@ export class ProductService extends BaseService {
     const url = `${this.apiUrl}/${Product.id}`;
 
     return this.http.put(url, Product);
-  }
-
-  getFilteredData(
-    filter: string,
-    page: number,
-    pageSize: number
-  ): Observable<any> {
-    return this.http.get(this.apiUrl, {
-      params: {
-        _page: page.toString(),
-        _limit: pageSize.toString(),
-        q: filter,
-      },
-    });
-  }
-
-  getObjectByValue(value: string): Observable<any> {
-    return this.http.get(`${this.apiUrl}/${value}`);
   }
 }

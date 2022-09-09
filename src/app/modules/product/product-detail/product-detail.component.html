@@ -1,28 +1,49 @@
 <div class="col">
+  <div class="row">
+    <div class="col-12 cot">
+      <a [routerLink]="['/product']" class="back-button">
+        <span class="float-start badge rounded-pill bg-secondary back-button">
+          < back
+        </span>
+      </a>
+    </div>
+  </div>
   <div class="card h-100 shadow-sm">
     <div class="row">
-      <div class="gallery" *ngFor="let image of product?.images">
-        <a target="_blank" href="img_forest.jpg">
-          <img src="{{ image }}" alt="Forest" width="600" height="400" />
-        </a>
-        <div class="label-top shadow-sm">download</div>
+      <div class="col-12 cot">
+        <div class="gallery" *ngFor="let image of product?.images">
+          <img class="img-detail" src="{{ image }}" alt="Forest" />
+          <a href="{{ image }}" download target="_blank">
+            <div class="label-top shadow-sm download-btn">download</div>
+          </a>
+        </div>
       </div>
     </div>
-
     <div class="card-body">
       <div class="clearfix mb-3">
-        <span class="float-start price-hp">12354.00&euro;</span>
-        <span class="float-end"
-          ><a class="text-muted small" href="#"> review</a></span
-        >
+        <span class="float-start badge rounded-pill bg-primary">
+          {{ product?.category }}
+        </span>
+        <span class="float-end price-hp">
+          {{ product?.price | currency: 'USD':'symbol' }} (discount: -
+          {{ product?.discountPercentage }}%)
+        </span>
       </div>
+      <h2 class="card-title">{{ product?.brand }} - {{ product?.title }}</h2>
+      <hr />
       <h5 class="card-title">
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Veniam quidem
-        eaque ut eveniet aut quis rerum. Asperiores accusamus harum ducimus
-        velit odit ut. Saepe, iste optio laudantium sed aliquam sequi.
+        {{ product?.description }}
       </h5>
+      <hr />
+      <span class="float-start badge rounded-pill bg-primary">
+        rating: {{ product?.rating }}</span
+      >
+      <span class="float-start badge rounded-pill bg-secondary">
+        stock: {{ product?.stock }}</span
+      >
+
       <div class="text-center my-4">
-        <a href="#" class="btn btn-warning">Check offer</a>
+        <a href="#" class="btn btn-warning">Buy</a>
       </div>
       <div class="clearfix mb-1">
         <span class="float-start"><i class="far fa-question-circle"></i></span>

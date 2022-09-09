@@ -21,21 +21,16 @@ export class ProductListComponent implements OnInit {
     this.getProducts();
   }
 
-  share() {
-    window.alert('The product has been shared!');
-  }
-
   getProducts() {
-    this.productService
-      .getProducts()
-      .subscribe((response: ProductListResult) => {
+    this.productService.getProducts().subscribe(
+      (response: ProductListResult) => {
         this.products = response.products;
-      });
+      },
+      (err) => {
+        // Could perform an especific action in case of error
+        console.log('Not able to get products, error:' + err.error);
+        this.router.navigate(['/product']);
+      }
+    );
   }
 }
-
-/*
-Copyright Google LLC. All Rights Reserved.
-Use of this source code is governed by an MIT-style license that
-can be found in the LICENSE file at https://angular.io/license
-*/

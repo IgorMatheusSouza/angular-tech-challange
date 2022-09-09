@@ -22,3 +22,26 @@ div.desc {
 .label-top {
   position: relative !important;
 }
+
+.cot {
+  margin-left: 20px;
+  margin-top: 40px;
+}
+
+.img-detail {
+  max-height: 270px;
+  min-height: 270px;
+}
+
+.card:hover {
+  transform: none !important;
+}
+
+.back-button {
+  margin-bottom: 30px;
+  font-size: 20px;
+}
+
+.download-btn {
+  display: table;
+}

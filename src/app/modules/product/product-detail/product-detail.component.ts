@@ -25,17 +25,21 @@ export class ProductDetailComponent implements OnInit {
   ngOnInit() {
     var id: string | null = this.route.snapshot.paramMap.get('id');
 
-    if (!id) this.router.navigate(['/product']);
-
-    this.productService.getProduct(id ?? ' ').subscribe((response: Product) => {
-      this.product = response;
-    });
-  }
-  share() {
-    window.alert('The product has been shared!');
+    if (!id) {
+      this.router.navigate(['/product']);
+    }
+    this.getProduct(id ?? '');
   }
 
-  selectMainImage(index: number) {
-    this.mainImageIndex = index;
+  getProduct(id: string) {
+    this.productService.getProduct(id).subscribe(
+      (response: Product) => {
+        this.product = response;
+      },
+      (err) => {
+        // Could perform a specific action in case of error
+        console.log('Not able to get product, error:' + err.error);
+      }
+    );
   }
 }
