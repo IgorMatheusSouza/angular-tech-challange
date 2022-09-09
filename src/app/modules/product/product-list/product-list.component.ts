@@ -7,7 +7,10 @@ import { ProductListResult } from '../models/productListResult';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.component.html',
-  styleUrls: ['./product-list.component.css'],
+  styleUrls: [
+    './product-list.component.css',
+    '../../../shared/style/product-base.component.css',
+  ],
 })
 export class ProductListComponent implements OnInit {
   products: Product[] = [];
@@ -19,8 +22,6 @@ export class ProductListComponent implements OnInit {
       .getProducts()
       .subscribe((response: ProductListResult) => {
         this.products = response.products;
-        console.log(this.products);
-        console.log(this.products[0].title);
       });
   }
 

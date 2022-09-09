@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { TopBarComponent } from './shared-components/top-bar/top-bar.component';
+import { TopBarComponent } from './shared/top-bar/top-bar.component';
 import { ProductModule } from './modules/product/product.module';
 import { AppRoutingModule } from './app-routing.module';
 
