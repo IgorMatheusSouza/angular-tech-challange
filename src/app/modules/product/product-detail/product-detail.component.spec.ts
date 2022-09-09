@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { ProductDetailComponent } from './product-detail.component';
 import { ProductService } from '../../../services/product.service';
+import { ActivatedRoute } from '@angular/router';
 import { HttpClient, HttpHandler } from '@angular/common/http';
 
 describe('Test ProductDetailComponent', () => {
@@ -13,6 +14,18 @@ describe('Test ProductDetailComponent', () => {
         ProductService,
         HttpClient,
         HttpHandler,
+        {
+          provide: ActivatedRoute,
+          useValue: {
+            snapshot: {
+              paramMap: {
+                get(): string {
+                  return '10';
+                },
+              },
+            },
+          },
+        },
       ],
     });
     component = TestBed.inject(ProductDetailComponent);
